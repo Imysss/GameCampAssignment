@@ -12,11 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Prefabs
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: Prefabs
   m_Data:
     m_SerializedData: []
   m_GUID: af0e6dbdf73423843ad74092384bafa6
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 10edd368224a9594e94eaab64e4b1d36
+    m_Address: Enemy_Chort
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96fe14959a14272409f07ace6dcf1dd7
+    m_Address: Ally_Knight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8a8bb9ba26c2df54abd01d73df4a2789, type: 2}
   m_SchemaSet:
