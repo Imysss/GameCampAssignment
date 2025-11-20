@@ -6,7 +6,7 @@ using UnityEngine;
 [CustomEditor(typeof(SpawnManager))]
 public class SpawnManagerEditor : Editor
 {
-    private string enemyKey = "enemy_default";
+    private string enemyKey = "Enemy_Chort";
 
     public override void OnInspectorGUI()
     {

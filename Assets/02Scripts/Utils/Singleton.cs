@@ -13,10 +13,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             if (_instance == null)
             {
                 _instance = FindObjectOfType<T>();
-                if (FindObjectsOfType<T>().Length > 1)
-                {
-                    Debug.Log($"[Singleton] 중복 인스턴스 발견: {typeof(T)}");
-                }
 
                 if (_instance == null)
                 {
@@ -27,6 +23,20 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             }
             
             return _instance;
+        }
+    }
+
+    protected virtual void Awake()
+    {
+        // 이미 인스턴스가 존재하면 중복 제거
+        if (_instance == null)
+        {
+            _instance = this as T;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
         }
     }
 }

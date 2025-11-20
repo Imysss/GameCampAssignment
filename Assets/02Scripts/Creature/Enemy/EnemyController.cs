@@ -2,14 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour, ISpawnable, IEnemyMovable
+public class EnemyController : MonoBehaviour, ISpawnable, IEnemyMovable, IAttackable
 {
+    //이동
     public float speed = 2f;
     private List<Vector3> _path;
     private int _idx = 0;
 
     private bool isMoving = false;
 
+    //공격
+    public float maxHp = 10f;
+    [SerializeField] private float hp;
+
+    [SerializeField] private int _spawnOrder;
+    public int SpawnOrder { get; private set; }
+
+    public void SetSpawnOrder(int order)
+    {
+        _spawnOrder = order;
+        SpawnOrder = order;
+    }
+    
     public void InitPath(List<Vector3> path)
     {
         _path = path;
@@ -19,6 +33,7 @@ public class EnemyController : MonoBehaviour, ISpawnable, IEnemyMovable
     public void OnSpawn()
     {
         _idx = 0;
+        hp = maxHp;
         
         //이동 루틴 시작
         isMoving = true;
@@ -30,12 +45,9 @@ public class EnemyController : MonoBehaviour, ISpawnable, IEnemyMovable
         isMoving = false;
     }
 
-
     void Update()
     {
-        if (!isMoving)
-            return;
-        if (_path == null || _path.Count == 0)
+        if (!isMoving || _path == null || _path.Count == 0)
             return;
 
         if (_idx == 0 && transform.position != _path[0])
@@ -56,5 +68,22 @@ public class EnemyController : MonoBehaviour, ISpawnable, IEnemyMovable
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        hp -= amount;
+
+        if (hp <= 0)
+            Die();
+    }
+
+    public bool IsDead => hp <= 0;
+
+    public Transform GetTransform() => transform;
+
+    private void Die()
+    {
+        ResourceManager.Instance.Destroy(gameObject);
     }
 }

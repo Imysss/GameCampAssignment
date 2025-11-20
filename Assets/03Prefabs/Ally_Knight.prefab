@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8756877484028151816}
   - component: {fileID: 5086079298651077054}
   - component: {fileID: 808272044537006914}
-  m_Layer: 0
+  - component: {fileID: 7072281191446161899}
+  m_Layer: 8
   m_Name: Ally_Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,3 +107,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7072281191446161899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7270064765588275079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9070791c314f83846bbf680bf3bc603f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 825c7c30862c5d747a4a7bd0bdc953ce, type: 2}
