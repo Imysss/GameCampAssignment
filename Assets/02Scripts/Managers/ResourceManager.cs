@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class ResourceManager : MonoBehaviour
+public class ResourceManager : Singleton<ResourceManager>
 {
     private readonly Dictionary<string, UnityEngine.Object> _cache = new();
     public bool IsPreloadComplete { get; private set; } = false;
@@ -64,7 +64,7 @@ public class ResourceManager : MonoBehaviour
         
         //Pooling
         if (pooling)
-            return;
+            return PoolManager.Instance.Pop(prefab, key);
 
         GameObject go = UnityEngine.Object.Instantiate(prefab, parent);
         go.name = prefab.name;
@@ -82,7 +82,7 @@ public class ResourceManager : MonoBehaviour
         string key = GetOriginKey(go);
         if (!string.IsNullOrEmpty(key))
         {
-            if (Push(key, go))
+            if (PoolManager.Instance.Push(key, go))
                 return;
         }
         
@@ -170,6 +170,6 @@ public class ResourceManager : MonoBehaviour
     public void Clear()
     {
         _cache.Clear();
-        IsPreloadComplete = false=;
+        IsPreloadComplete = false;
     }
 }

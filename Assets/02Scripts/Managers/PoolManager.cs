@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class PoolManager : MonoBehaviour
+public class PoolManager : Singleton<PoolManager>
 {
     //여러 prefab-key를 기준으로 Pool을 따로 관리
     private readonly Dictionary<string, IObjectPool<GameObject>> _pools = new();
