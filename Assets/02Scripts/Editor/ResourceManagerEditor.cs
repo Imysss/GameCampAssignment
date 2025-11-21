@@ -8,7 +8,7 @@ public class ResourceManagerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        DrawDefaultInspector();
+        base.OnInspectorGUI();
 
         GUILayout.Space(15);
         EditorGUILayout.LabelField("=== ResourceManager Debug ===", EditorStyles.boldLabel);

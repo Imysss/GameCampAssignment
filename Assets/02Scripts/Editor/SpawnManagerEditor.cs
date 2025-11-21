@@ -10,7 +10,7 @@ public class SpawnManagerEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        DrawDefaultInspector();
+        base.OnInspectorGUI();
         
         GUILayout.Space(15);
         EditorGUILayout.LabelField("=== SpawnManager Debug Tools ===", EditorStyles.boldLabel);

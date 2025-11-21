@@ -42,7 +42,6 @@ public class AllyController : MonoBehaviour, ISpawnable
 
         if (_currentTarget == null)
         {
-            Debug.Log("No target found");
             return;
         }
         

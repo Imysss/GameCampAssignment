@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 481069885}
   - component: {fileID: 481069884}
   - component: {fileID: 481069886}
+  - component: {fileID: 481069887}
   m_Layer: 0
   m_Name: '@Managers'
   m_TagString: Untagged
@@ -380,6 +381,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Commander: {fileID: 1035481715481290409}
+--- !u!114 &481069887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481069880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7390beba7af5e4fa3542da87ee93a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - enemyKey: Enemy_Chort
+    count: 1
+    spawnInterval: 0.5
+  - enemyKey: Enemy_Chort
+    count: 3
+    spawnInterval: 0.3
+  - enemyKey: Enemy_Demon
+    count: 5
+    spawnInterval: 0.1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,9 @@ public class EnemyController : MonoBehaviour, ISpawnable, IEnemyMovable, IAttack
     {
         SpawnOrder = order;
     }
+    
+    //=== Event ===
+    public static Action<EnemyController> OnEnemyKilled;
     
     public void InitPath(List<Vector3> path)
     {
@@ -112,6 +116,9 @@ public class EnemyController : MonoBehaviour, ISpawnable, IEnemyMovable, IAttack
 
     private void Die()
     {
+        //WaveManager 구독 중
+        OnEnemyKilled?.Invoke(this);
+        
         ResourceManager.Instance.Destroy(gameObject);
     }
 }
