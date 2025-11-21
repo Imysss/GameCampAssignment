@@ -16,10 +16,10 @@ public class WaveManager : Singleton<WaveManager>
     [Header("Wave Settings")] 
     [SerializeField] private List<WaveInfo> waves;
 
-    private int _currentWave = 0;
+    [SerializeField] private int _currentWave = 0;
 
-    private int _aliveEnemyCount = 0;
-    private bool _stageRunning = false;
+    [SerializeField] private int _aliveEnemyCount = 0;
+    [SerializeField] private bool _stageRunning = false;
 
     private void OnEnable()
     {
