@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IAttackable
 {
-    void TakeDamage(float amount);
+    void TakeDamage(float damage);
     bool IsDead { get; }
     Transform GetTransform();
     int SpawnOrder { get; } //스폰 순서 우선 공격
