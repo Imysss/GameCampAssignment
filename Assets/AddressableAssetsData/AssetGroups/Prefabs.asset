@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: af0e6dbdf73423843ad74092384bafa6
   m_SerializeEntries:
+  - m_GUID: 0e4bb47ce7f5b84429588c1b35c040f1
+    m_Address: Projectile_Skull
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 10edd368224a9594e94eaab64e4b1d36
     m_Address: Enemy_Chort
     m_ReadOnly: 0
@@ -25,6 +31,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 96fe14959a14272409f07ace6dcf1dd7
     m_Address: Ally_Knight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fbfe3b2099ebde4ab5d626120091ca4
+    m_Address: Projectile_Arrow
     m_ReadOnly: 0
     m_SerializedLabels:
     - preload

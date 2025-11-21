@@ -78,14 +78,25 @@ public class PoolManager : Singleton<PoolManager>
     }
     
     //Push(Despawn)
+    public bool Push(GameObject go)
+    {
+        var origin = go.GetComponent<ResourceOrigin>();
+        if (origin == null || string.IsNullOrEmpty(origin.originKey))
+            return false;
+
+        return Push(origin.originKey, go);
+    }
+    
+    //Push(Despawn)
     public bool Push(string key, GameObject go)
     {
-        if (!_pools.ContainsKey(key))
-            return false;
+        if (!_pools.ContainsKey(key)) 
+            return false; 
+        _pools[key].Release(go); 
         
-        _pools[key].Release(go);
         return true;
     }
+    
     
     //Clear All Pools
     public void Clear()

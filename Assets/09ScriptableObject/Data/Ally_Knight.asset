@@ -16,3 +16,5 @@ MonoBehaviour:
   attack: 10
   attackRange: 10
   attackSpeed: 1
+  projectileKey: Projectile_Skull
+  projectileSpeed: 10

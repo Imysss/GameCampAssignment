@@ -90,13 +90,18 @@ public class AllyController : MonoBehaviour, ISpawnable
     private void Attack(IAttackable target)
     {
         _cooldown = 1f / stat.attackSpeed;
-        target.TakeDamage(stat.attack);
+        
+        var proj = ResourceManager.Instance.Instantiate(stat.projectileKey, pooling: true);
+
+        proj.transform.position = transform.position;
+        proj.GetComponent<ProjectileController>().Fire(target, stat.attack, stat.projectileSpeed);
     }
 
     private void OnDrawGizmosSelected()
     {
         if (stat == null)
             return;
+        
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, stat.attackRange);
     }

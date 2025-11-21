@@ -92,15 +92,8 @@ public class SpawnManager : Singleton<SpawnManager>
 
     public GameObject SpawnAlly(string allyKey, Vector3 spawnPos, Quaternion rotation)
     {
-        var prefab = ResourceManager.Instance.Load<GameObject>(allyKey);
 
-        if (prefab == null)
-        {
-            Debug.Log($"[SpawnManager] Ally Prefab not Found: {allyKey}");
-            return null;
-        }
-
-        GameObject ally = PoolManager.Instance.Pop(prefab, allyKey);
+        GameObject ally = ResourceManager.Instance.Instantiate(allyKey, pooling: true);
         ally.transform.position = spawnPos;
         ally.transform.rotation = rotation;
 
@@ -146,15 +139,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     public GameObject SpawnEnemy(string enemyKey)
     {
-        var prefab = ResourceManager.Instance.Load<GameObject>(enemyKey);
-
-        if (prefab == null)
-        {
-            Debug.Log($"[SpawnManager] Enemy Prefab not Found: {enemyKey}");
-            return null;
-        }
-
-        GameObject enemy = PoolManager.Instance.Pop(prefab, enemyKey);
+        GameObject enemy = ResourceManager.Instance.Instantiate(enemyKey, pooling: true);
         
         //Path 적용
         var movable = enemy.GetComponent<IEnemyMovable>();

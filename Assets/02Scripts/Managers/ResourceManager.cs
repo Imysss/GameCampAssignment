@@ -61,14 +61,20 @@ public class ResourceManager : Singleton<ResourceManager>
             Debug.Log($"[ResourceManager] Instantiate failed: prefab not loaded -> {key}");
             return null;
         }
+
+        GameObject go;
         
         //Pooling
         if (pooling)
-            return PoolManager.Instance.Pop(prefab, key);
-
-        GameObject go = UnityEngine.Object.Instantiate(prefab, parent);
-        go.name = prefab.name;
-
+        {
+            go = PoolManager.Instance.Pop(prefab, key);
+        }
+        else
+        {
+            go = UnityEngine.Object.Instantiate(prefab, parent);
+            go.name = prefab.name;
+        }
+        
         SetOriginKey(go, key);
         return go;
     }
