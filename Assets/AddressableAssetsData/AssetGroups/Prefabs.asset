@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: af0e6dbdf73423843ad74092384bafa6
   m_SerializeEntries:
+  - m_GUID: 031ba2e2a56a8b8419557dd0997636b7
+    m_Address: Enemy_Demon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e4bb47ce7f5b84429588c1b35c040f1
     m_Address: Projectile_Skull
     m_ReadOnly: 0
